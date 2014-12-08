@@ -6,13 +6,14 @@ global_settings { assumed_gamma 2.2 }
 #include "skies.inc"
 #include "metals.inc"
 #include "woods.inc"
+#include "WILBOT1.INC"
 
 #declare FB_QUALITY_OFF     =  0;
 #declare FB_QUALITY_FAST    =  1;
 #declare FB_QUALITY_DEF     =  2;
 #declare FB_QUALITY_HIGH    =  3;
 
-#declare FB_QUALITY = FB_QUALITY_HIGH;
+#declare FB_QUALITY = FB_QUALITY_OFF;
 
 #declare JUMP_START  = 0.5;
 #declare JUMP_HEIGHT = 7;
@@ -29,7 +30,7 @@ camera {
     up <0, 1, 0>
     right x * 2
     look_at <-3, 3, 5>
-    rotate<0, -360 * (clock + 0.1), 0>
+    rotate<0, -360 * (clock + 0.000001), 0>
 
 #if (FB_QUALITY != FB_QUALITY_OFF)
     aperture 2.25
@@ -252,7 +253,7 @@ light_source {
         }
 
         sphere {
-            <0, 0, 0>, 1 
+            <0, 0, 0>, 1
             scale <1.4, 2.1, 1.4>
             translate 8.4*y
         }
@@ -681,7 +682,7 @@ light_source {
                    reflection 0.25
                }
            }
-           
+
            tile2
            texture {
                pigment {
@@ -729,11 +730,12 @@ light_source {
       roughness 0.02
       reflection 0.3
    }
-} 
+}
 
 //object { Pieces }
 object { Board }
 object { Frame }
+object { WILBOT1 }
 //object { Ground }
 //object { Table }
 //sky_sphere { SkySphere }

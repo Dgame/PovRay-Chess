@@ -7,13 +7,6 @@ global_settings { assumed_gamma 2.2 }
 #include "metals.inc"
 #include "woods.inc"
 
-#declare FB_QUALITY_OFF     =  0;
-#declare FB_QUALITY_FAST    =  1;
-#declare FB_QUALITY_DEF     =  2;
-#declare FB_QUALITY_HIGH    =  3;
-
-#declare FB_QUALITY = FB_QUALITY_OFF;
-
 #declare JUMP_START  = 0.5;
 #declare JUMP_HEIGHT = 7;
 
@@ -25,38 +18,6 @@ camera {
     right x * 2
     look_at <-3, 3, 5>
     //rotate<0, -360 * (clock + 0.000001), 0>
-
-#if (FB_QUALITY != FB_QUALITY_OFF)
-    aperture 2.25
-    focal_point <0, 0, 0>
-#end
-
-#switch (FB_QUALITY)
-#case (FB_QUALITY_OFF)
-    aperture 0
-    #warning "\nNo focal blur used...\n"
-#break
-#case (FB_QUALITY_FAST)
-    blur_samples 7
-    confidence 0.5             // default is 0.9
-    variance 1/64              // default is 1/128 (0.0078125)
-    #warning "\nFast focal blur used...\n"
-#break
-#case (FB_QUALITY_DEF)
-    blur_samples 19
-    confidence 0.90            // default is 0.9
-    variance 1/128             // default is 1/128 (0.0078125)
-    #warning "\nDefault focal blur used...\n"
-#break
-#case (FB_QUALITY_HIGH)
-    blur_samples 37
-    confidence 0.975           // default is 0.9
-    variance 1/255             // default is 1/128 (0.0078125)
-    #warning "\nHigh Quality focal blur used...\n"
-#break
-#else
-    #warning "\nNo focal blur used...\n"
-#end
 }
 
 light_source {

@@ -6,14 +6,6 @@ global_settings { assumed_gamma 2.2 }
 #include "skies.inc"
 #include "metals.inc"
 #include "woods.inc"
-#include "WILBOT1.INC"
-
-#declare FB_QUALITY_OFF     =  0;
-#declare FB_QUALITY_FAST    =  1;
-#declare FB_QUALITY_DEF     =  2;
-#declare FB_QUALITY_HIGH    =  3;
-
-#declare FB_QUALITY = FB_QUALITY_OFF;
 
 #declare JUMP_START  = 0.5;
 #declare JUMP_HEIGHT = 7;
@@ -31,43 +23,112 @@ camera {
     right x * 2
     look_at <-3, 3, 5>
     rotate<0, -360 * (clock + 0.000001), 0>
-
-#if (FB_QUALITY != FB_QUALITY_OFF)
-    aperture 2.25
-    focal_point <0, 0, 0>
-#end
-
-#switch (FB_QUALITY)
-#case (FB_QUALITY_OFF)
-    aperture 0
-    #warning "\nNo focal blur used...\n"
-#break
-#case (FB_QUALITY_FAST)
-    blur_samples 7
-    confidence 0.5             // default is 0.9
-    variance 1/64              // default is 1/128 (0.0078125)
-    #warning "\nFast focal blur used...\n"
-#break
-#case (FB_QUALITY_DEF)
-    blur_samples 19
-    confidence 0.90            // default is 0.9
-    variance 1/128             // default is 1/128 (0.0078125)
-    #warning "\nDefault focal blur used...\n"
-#break
-#case (FB_QUALITY_HIGH)
-    blur_samples 37
-    confidence 0.975           // default is 0.9
-    variance 1/255             // default is 1/128 (0.0078125)
-    #warning "\nHigh Quality focal blur used...\n"
-#break
-#else
-    #warning "\nNo focal blur used...\n"
-#end
 }
 
 light_source {
     <800, 600, -200>
     colour White
+}
+
+#declare Hand = blob {
+    threshold .65
+    sphere {
+        <-.23, -.32, 0>, .43, 1
+        scale <1.95, 1.05, .8>
+    }   //palm
+    sphere {
+        <+.12, -.41, 0>, .43, 1
+        scale <1.95, 1.075,.8>
+    }  //palm
+    sphere {
+        <-.23,-.63,0>, .45, .75
+        scale <1.78, 1.3,1>
+    } //midhand
+    sphere {
+        <+.19,-.63,0>, .45, .75
+        scale <1.78, 1.3,1>
+    } //midhand
+    sphere {
+        <-.22,-.73,0>, .45, .85
+        scale <1.4, 1.25,1>
+    } //heel
+    sphere {
+        <+.19,-.73,0>, .45, .85
+        scale <1.4, 1.25,1>
+    } //heel
+    sphere {
+        <-.65,.28,-.05>, .26, -1
+    } //counteract pinky knucklebulge
+    sphere {
+        <-.65,-.28,0>, .26, -1
+    }   //counteract pinky palm bulge
+    sphere {
+        <-.3,.44,-.05>, .26, -1
+    }  //counteract ring knuckle bulge
+    sphere {
+        <-.3,-.28,0>, .26, -1
+    }    //counteract ring palm bulge
+    sphere {
+        <.05,.49,-.05>, .26, -1
+    }  //counteract middle knuckle bulge
+    sphere {
+        <.05,-.28,0>, .26, -1
+    }    //counteract middle palm bulge
+    sphere {
+        <.4,.512,-.05>, .26, -1
+    }  //counteract index knuckle bulge
+    sphere {
+        <.4,-.4,0>, .26, -1
+    }      //counteract index palm bulge
+    sphere {
+        <.85,-.68,-.05>, .25, -1
+    } //counteract thumb knuckle bulge
+    sphere {
+        <.41,-.7,0>, .25, -.89
+    }   //counteract thumb heel bulge
+    cylinder {
+        <-.65,-.28,0>,
+        <-.65,.28,-.05>, .26, 1
+    }    //lower pinky
+    cylinder {
+        <-.65,.28,-.05>,
+        <-.65, .68,-.2>, .26, 1
+    }  //upper pinky
+    cylinder {
+        <-.3,-.28,0>,
+        <-.3,.44,-.05>, .26, 1
+    }      //lower ring
+    cylinder {
+        <-.3,.44,-.05>,
+        <-.3, .9,-.2>, .26, 1
+    }     //upper ring
+    cylinder {
+        <.05,-.28,0>,
+        <.05, .49,-.05>, .26, 1
+    }     //lower middle
+    cylinder {
+        <.05,.49,-.05>,
+        <.05, .95,-.2>, .26, 1
+    }    //upper middle
+    // <Zeigerfinger>
+    cylinder {
+        <.4, -.4, 0>,
+        <.4, .512, -.05>, .26, 1
+    }      //lower index
+    cylinder {
+        <.4, .512,-.07>, // z = -.05
+        <.4, .85, -.4>, .26, 1 // z = -.2
+    }    //upper index
+    // </Zeigerfinger>
+    cylinder {
+        <.61, -.95, 0>,
+        <1.05, -.68, -.05>, .25, 1
+    }  //lower thumb
+    cylinder { 
+        <.85, -.68, -.05>,
+        <1.2, -.4, -.2>, .25, 1
+    }  //upper thumb
+    pigment { Flesh }
 }
 
 #declare PawnBase = union {
@@ -717,7 +778,7 @@ light_source {
       object {
          Hyperboloid_Y
          scale <10, 20, 10>
-         translate -20*y
+         translate -20 * y
       }
    }
 
@@ -732,10 +793,15 @@ light_source {
    }
 }
 
+object {
+    Hand
+    rotate <-90, 45, -25>
+    translate <0, 3, 0>
+    scale 10
+}
+
 //object { Pieces }
 object { Board }
 object { Frame }
-object { WILBOT1 }
 //object { Ground }
 //object { Table }
-//sky_sphere { SkySphere }

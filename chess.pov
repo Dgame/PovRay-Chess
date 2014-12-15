@@ -180,7 +180,6 @@ light_source {
     object { PawnBase }
 }
 
-
 #declare Rook = union {
     intersection {
         union {

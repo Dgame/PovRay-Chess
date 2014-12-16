@@ -1,5 +1,5 @@
-#include "chess.inc"
-#include "pieces.inc"
+#include "includes/chess.inc"
+#include "includes/pieces.inc"
 
 global_settings { assumed_gamma 2.2 }
 

@@ -1,4 +1,4 @@
-#include "chess.inc"
+#include "includes/chess.inc"
 
 global_settings { assumed_gamma 2.2 }
 

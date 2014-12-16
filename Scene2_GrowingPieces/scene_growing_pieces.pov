@@ -5,7 +5,7 @@ global_settings { assumed_gamma 2.2 }
 
 camera {
     angle 38
-    location <200, CAM_Y, -55>
+    location <200, 100, -55>
     direction <2, 2, 2>
     up <0, 1, 0>
     right x * 2

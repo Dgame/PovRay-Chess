@@ -133,8 +133,8 @@
    
    finish {
       specular 1
-      roughness 0.02
-      reflection 0.3
+      roughness 0.1
+      reflection 0.2
    }
 }
 

@@ -5,10 +5,8 @@ global_settings { assumed_gamma 2.2 }
 camera {
     angle 38
     location <200, 100, -55>
-    direction <2, 2, 2>
-    up <0, 1, 0>
-    right x * 2
-    look_at <-3, 3, 5>
+    look_at <-3, -3, 5>
+    rotate 45
 }
 
 light_source {
@@ -16,18 +14,19 @@ light_source {
     colour White
 }
 
-#declare Fold_Angle = 80 - 90 * clock;
+#declare Fold_Angle = 90 - 90 * clock;
 
 //---------------------------------
 object { Ground }
 object { Table }
 object {
 	ChessBoard
-    translate <0, 0, 0>
+    translate <0, 0, -2>
 	rotate <0, 0, Fold_Angle>
 } //------------------
 object {
 	ChessBoard
+    translate <0, 0, -2>
     rotate <0, 0, -Fold_Angle>
 } //------------------
 

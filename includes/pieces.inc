@@ -491,43 +491,107 @@
 }
 
 #declare FarSide = union {
+#if (USE_B_PAWN_0)
     object { BPawn translate <-28, 0, 20> }
+#end
+#if (USE_B_PAWN_1)
     object { BPawn translate <-20, 0, 20> }
+#end
+#if (USE_B_PAWN_2)
     object { BPawn translate <-12, 0, 20> }
+#end
+#if (USE_B_PAWN_3)
     object { BPawn translate < -4, 0, 20> }
+#end
+#if (USE_B_PAWN_4)
     object { BPawn translate <  4, 0, 20> }
+#end
+#if (USE_B_PAWN_5)
     object { BPawn translate < 12, 0, 20> }
+#end
+#if (USE_B_PAWN_6)
     object { BPawn translate < 20, 0, 20> }
+#end
+#if (USE_B_PAWN_7)
     object { BPawn translate < 28, 0, 20> }
+#end
 
+#if (USE_B_ROOK_1)
     object { BRook   translate <-28, 0, 28> }
+#end
+#if (USE_B_KNIGHT_1)
     object { BKnight translate <-20, 0, 28> }
+#end
+#if (USE_B_BISHOP_1)
     object { BBishop translate <-12, 0, 28> }
+#end
+#if (USE_B_QUEEN)
     object { BQueen  translate < -4, 0, 28> }
+#end
+#if (USE_B_KING)
     object { BKing   translate <  4, 0, 28> }
+#end
+#if (USE_B_BISHOP_2)
     object { BBishop translate < 12, 0, 28> }
+#end
+#if (USE_B_KNIGHT_2)
     object { BKnight translate < 20, 0, 28> }
+#end
+#if (USE_B_ROOK_2)
     object { BRook   translate < 28, 0, 28> }
+#end
 }
 
 #declare NearSide = union {
+#if (USE_W_PAWN_0)
     object { WPawn translate <-28, 0, -20> }
+#end
+#if (USE_W_PAWN_1)
     object { WPawn translate <-20, 0, -20> }
+#end
+#if (USE_W_PAWN_2)
     object { WPawn translate <-12, 0, -20> }
+#end
+#if (USE_W_PAWN_3)
     object { WPawn translate < -4, 0, -20> }
+#end
+#if (USE_W_PAWN_4)
     object { WPawn translate <  4, 0, -20> }
+#end
+#if (USE_W_PAWN_5)
     object { WPawn translate < 12, 0, -20> }
+#end
+#if (USE_W_PAWN_6)
     object { WPawn translate < 20, 0, -20> }
+#end
+#if (USE_W_PAWN_7)
     object { WPawn translate < 28, 0, -20> }
+#end
 
+#if (USE_W_ROOK_1)
     object { WRook   translate <-28, 0, -28> }
+#end
+#if (USE_W_KNIGHT_1)
     object { WKnight translate <-20, 0, -28> }
+#end
+#if (USE_W_BISHOP_1)
     object { WBishop translate <-12, 0, -28> }
+#end
+#if (USE_W_QUEEN)
     object { WQueen  translate < -4, 0, -28> }
+#end
+#if (USE_W_KING)
     object { WKing   translate <  4, 0, -28> }
+#end
+#if (USE_W_BISHOP_2)
     object { WBishop translate < 12, 0, -28> }
+#end
+#if (USE_W_KNIGHT_2)
     object { WKnight translate < 20, 0, -28> }
+#end
+#if (USE_W_ROOK_2)
     object { WRook   translate < 28, 0, -28> }
+#end
 }
 
 #declare Pieces = union {

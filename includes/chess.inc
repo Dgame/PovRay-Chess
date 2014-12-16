@@ -65,7 +65,8 @@
 }
 
 #declare Board = box {
-    <-32, -1, -32> <32, 0, 32>
+    <-32, -1, -32>
+    <32, 0, 32>
     texture {
        tiles {
            texture {
@@ -128,10 +129,8 @@
       }
    }
 
-   pigment {
-      granite
-      scale 6
-   }
+   texture { Cork }
+   
    finish {
       specular 1
       roughness 0.02

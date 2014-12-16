@@ -306,11 +306,11 @@
 }
 
 #declare WWood = texture {
-    T_Silver_3B
+    White_Wood
 }
 
 #declare BWood = texture {
-    T_Gold_3C
+    Dark_Wood
 }
 
 #declare WPawn = object {

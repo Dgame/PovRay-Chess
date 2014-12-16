@@ -25,6 +25,7 @@ light_source {
     colour White
 }
 
+object { Pieces }
 object { Ground }
 object { Table }
 object { ChessBoard }

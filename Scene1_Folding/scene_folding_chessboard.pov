@@ -1,9 +1,3 @@
-#include "shapes.inc"
-#include "textures.inc"
-#include "metals.inc"
-#include "woods.inc"
-#include "colors.inc"
-
 #include "includes/chess.inc"
 
 global_settings { assumed_gamma 2.2 }

@@ -35,8 +35,8 @@ object {
     WRook
 
     #if (clock < 16)
-        translate < startX, clock, startZ + clock * 1.06>
+        translate <startX, clock, startZ + clock * 1.06>
     #else
-        translate < startX, 30-clock, startZ + clock * 1.06>
+        translate <startX, 30-clock, startZ + clock * 1.06>
     #end
 }

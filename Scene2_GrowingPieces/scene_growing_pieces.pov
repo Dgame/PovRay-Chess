@@ -21,5 +21,5 @@ object { Table }
 object { ChessBoard }
 object {
     Pieces
-    translate <0, -15 + clock * 18, 0>
+    translate <0, -15 + clock * 15.5, 0>
 }

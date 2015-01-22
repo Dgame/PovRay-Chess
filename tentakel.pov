@@ -19,6 +19,18 @@ camera {
    look_at  <0, 0, 2>
 }
 
+#if (clock < 0.5)
+#declare A = clock * -5;
+#declare B = clock * 4;
+#declare C = clock * -9;
+#declare D = clock * 7;
+#else
+#declare A = clock * -5;
+#declare B = clock * 2;
+#declare C = clock * -9;
+#declare D = clock * 3;
+#end
+
 #declare Tentakel = union {
 #declare R = 5;
 #declare r = 1;
@@ -32,7 +44,7 @@ camera {
       b_spline points + 1
       <0, 0, 0>, 1
 #while (pt < points)
-      <R * cos(pt * P + 5 * (clock * 11)) + 5 * R * cos(pt * P * 0.1 * (clock * 7)), pt * L, R * sin(pt * P + 5 * (clock * -17)) + 5 * R * sin(pt * P * 0.1 * (clock * 14))>, r 
+      <R * cos(pt * P + 5 * A) + 5 * R * cos(pt * P * 0.1 * B), pt * L, R * sin(pt * P + 5 * C) + 5 * R * sin(pt * P * 0.1 * D)>, r 
 #declare r = r + 0.2;
 #declare pt = pt + 1;
 #end

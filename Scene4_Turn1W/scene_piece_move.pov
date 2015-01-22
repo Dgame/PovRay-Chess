@@ -3,12 +3,11 @@ global_settings { assumed_gamma 2.2 }
 #include "includes/chess.inc"
 #include "includes/usings.inc"
 
-#declare USE_W_ROOK_2 = 0;
+#declare USE_W_PAWN_5 = 0;
 
 #include "includes/pieces.inc"
 
-#declare JUMP_START  = 0.5;
-#declare JUMP_HEIGHT = 7;
+
 
 camera {
     angle 0
@@ -22,9 +21,8 @@ light_source {
     colour White
 }
 
-#declare startX = 28;
-#declare startZ = -28;
-#declare endZ = -4;
+#declare startX = 12;
+#declare startZ = -20;
 
 object { Ground }
 object { Table }
@@ -32,11 +30,11 @@ object { Pieces }
 object { ChessBoard }
 object { Frame }
 object {
-    WRook
+    WPawn
 
     #if (clock < 16)
-        translate <startX, clock, startZ + clock * 1.06>
+        translate <startX, clock, startZ + clock * 0.30>
     #else
-        translate <startX, 30-clock, startZ + clock * 1.06>
+        translate <startX, 30-clock, startZ + clock * 0.30>
     #end
 }

@@ -1,22 +1,20 @@
 #include "colors.inc"
+#include "includes/chess.inc"
+#include "includes/usings.inc"
+#include "includes/pieces.inc"
 
-background { color White }
-
-light_source {
-   <10, 100, -100>
-   color White
-}
-
-light_source {
-   <10, 100, 100>
-   color White
-}
-
-global_settings { ambient_light <1, 1, 1> * 1 }
+global_settings { assumed_gamma 2.2 }
 
 camera {
-   location <0, 0, -100>
-   look_at  <0, 0, 2>
+    angle 38
+    location <200, 100, -55>
+    direction <2, 2, 2>
+    look_at <-3, -3, 5>
+}
+
+light_source {
+    <800, 600, -200>
+    colour White
 }
 
 #if (clock < 0.5)
@@ -55,7 +53,7 @@ camera {
 }
 
 
-#declare Viech = union {
+#declare Viech = merge {
    object {
       Tentakel
       rotate 90 * z
@@ -69,7 +67,7 @@ camera {
    }
 
    sphere {
-      <0, 0, 0>, 20
+      <0, 0, 5 + (5 * clock)>, 20
       pigment { checker Black White }
    }
 
@@ -87,3 +85,7 @@ camera {
 }
 
 object { Viech }
+object { Ground }
+object { Table }
+object { ChessBoard }
+object { Pieces }

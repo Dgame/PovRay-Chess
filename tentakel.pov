@@ -3,29 +3,35 @@
 #include "includes/usings.inc"
 #include "includes/pieces.inc"
 
-global_settings { assumed_gamma 2.2 }
+background { color White }
 
-camera {
-    angle 38
-    location <200, 100, -55>
-    direction <2, 2, 2>
-    look_at <-3, -3, 5>
+light_source {
+   <10, 100, -100>
+   color White
 }
 
 light_source {
-    <800, 600, -200>
-    colour White
+   <10, 100, 100>
+   color White
 }
 
-#if (clock < 0.5)
+global_settings { ambient_light <1, 1, 1> * 1 }
+
+camera {
+   location <100, 100, -120>
+   look_at  <0, 0, 0>
+}
+
+
+#if (clock < 0.3)
 #declare A = clock * -5;
 #declare B = clock * 4;
 #declare C = clock * -9;
 #declare D = clock * 7;
 #else
-#declare A = clock * -5;
+#declare A = clock * -4;
 #declare B = clock * 2;
-#declare C = clock * -9;
+#declare C = clock * -8;
 #declare D = clock * 3;
 #end
 
@@ -84,7 +90,16 @@ light_source {
    }
 }
 
-object { Viech }
+#declare trans_y = -25 + (clock * 250);
+#if (trans_y > 50)
+#declare trans_y = 50;
+#end
+
+object {
+   Viech
+   translate <0, -25 + (clock * 100), 0>
+   rotate -50 * y
+}
 object { Ground }
 object { Table }
 object { ChessBoard }

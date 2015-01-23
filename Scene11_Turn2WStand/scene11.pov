@@ -18,7 +18,7 @@ camera {
 }
 
 light_source {
-    <800, 600, -200>
+    <0, 600, 0>
     colour White
 }
 

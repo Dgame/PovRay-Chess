@@ -50,7 +50,7 @@ camera {
 #end
    }
 
-   pigment { color Yellow }
+   pigment { color Black }
    finish { ambient 0.5 phong 0.7 phong_size 20 reflection { 0.0 } }
 }
 
@@ -70,7 +70,7 @@ camera {
 
    sphere {
       <0, 0, 0>, 20
-      pigment { color Yellow }
+      pigment { checker Black White }
    }
 
    object {

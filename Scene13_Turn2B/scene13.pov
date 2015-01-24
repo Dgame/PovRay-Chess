@@ -39,8 +39,8 @@ object {
     BQueen
 
     #if (clock < 16)
-        translate <startX + clock * 0.77, clock, startZ - clock * 1.07>
+        translate <startX + clock * 1.03, clock, startZ - clock * 1.07>
     #else
-        translate <startX + clock * 0.77, 30-clock, startZ - clock * 1.07>
+        translate <startX + clock * 1.03, 30-clock, startZ - clock * 1.07>
     #end
 }

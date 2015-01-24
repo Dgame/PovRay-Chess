@@ -1,4 +1,7 @@
 #include "colors.inc"
+#include "includes/chess.inc"
+#include "includes/usings.inc"
+#include "includes/pieces.inc"
 
 background { color White }
 
@@ -15,19 +18,20 @@ light_source {
 global_settings { ambient_light <1, 1, 1> * 1 }
 
 camera {
-   location <0, 0, -100>
-   look_at  <0, 0, 2>
+   location <100, 100, -120>
+   look_at  <0, 0, 0>
 }
 
-#if (clock < 0.5)
+
+#if (clock < 0.3)
 #declare A = clock * -5;
 #declare B = clock * 4;
 #declare C = clock * -9;
 #declare D = clock * 7;
 #else
-#declare A = clock * -5;
+#declare A = clock * -4;
 #declare B = clock * 2;
-#declare C = clock * -9;
+#declare C = clock * -8;
 #declare D = clock * 3;
 #end
 
@@ -50,12 +54,12 @@ camera {
 #end
    }
 
-   pigment { color Yellow }
+   pigment { color Black }
    finish { ambient 0.5 phong 0.7 phong_size 20 reflection { 0.0 } }
 }
 
 
-#declare Viech = union {
+#declare Viech = merge {
    object {
       Tentakel
       rotate 90 * z
@@ -69,8 +73,8 @@ camera {
    }
 
    sphere {
-      <0, 0, 0>, 20
-      pigment { color Yellow }
+      <0, 0, 5 + (5 * clock)>, 20
+      pigment { checker Black White }
    }
 
    object {
@@ -86,4 +90,17 @@ camera {
    }
 }
 
-object { Viech }
+#declare trans_y = -25 + (clock * 250);
+#if (trans_y > 50)
+#declare trans_y = 50;
+#end
+
+object {
+   Viech
+   translate <0, -25 + (clock * 100), 0>
+   rotate -50 * y
+}
+object { Ground }
+object { Table }
+object { ChessBoard }
+object { Pieces }
